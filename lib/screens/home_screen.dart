@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import '../widgets/product_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -33,10 +34,14 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 8),
             const Text(
               'Tu espacio para consultar productos de farmacia.',
-              style: TextStyle(fontSize: 15, color: Colors.black54),
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.black54,
+              ),
             ),
             const SizedBox(height: 20),
 
+            // Banner de bienvenida
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(20),
@@ -64,7 +69,10 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: 6),
                   Text(
                     'Encuentra información de nuestros productos.',
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               ),
@@ -72,121 +80,114 @@ class HomeScreen extends StatelessWidget {
 
             const SizedBox(height: 24),
 
-const Text(
-  'Categorías',
-  style: TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.bold,
-    color: Color(0xFF17365D),
-  ),
-),
-
-const SizedBox(height: 12),
-
-Row(
-  children: [
-    Expanded(
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Column(
-            children: const [
-              Icon(
-                Icons.medication,
-                color: Color(0xFF1565C0),
-                size: 30,
+            // Categorías
+            const Text(
+              'Categorías',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF17365D),
               ),
-              SizedBox(height: 8),
-              Text('Vitaminas'),
-            ],
-          ),
-        ),
-      ),
-    ),
-    Expanded(
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Column(
-            children: const [
-              Icon(
-                Icons.sanitizer,
-                color: Color(0xFF1565C0),
-                size: 30,
-              ),
-              SizedBox(height: 8),
-              Text('Higiene'),
-            ],
-          ),
-        ),
-      ),
-    ),
-  ],
-),
+            ),
+            const SizedBox(height: 12),
 
-const SizedBox(height: 24),
+            Row(
+              children: [
+                Expanded(
+                  child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                      ),
+                      child: Column(
+                        children: const [
+                          Icon(
+                            Icons.medication,
+                            color: Color(0xFF1565C0),
+                            size: 30,
+                          ),
+                          SizedBox(height: 8),
+                          Text('Vitaminas'),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                      ),
+                      child: Column(
+                        children: const [
+                          Icon(
+                            Icons.sanitizer,
+                            color: Color(0xFF1565C0),
+                            size: 30,
+                          ),
+                          SizedBox(height: 8),
+                          Text('Higiene'),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 24),
+
+            // Productos destacados
             const Text(
               'Productos destacados',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+                color: Color(0xFF17365D),
               ),
             ),
             const SizedBox(height: 12),
 
-            Card(
-              child: ListTile(
-                leading: const CircleAvatar(
-                  backgroundColor: Color(0xFFE3F2FD),
-                  child: Icon(
-                    Icons.medication,
-                    color: Color(0xFF1565C0),
-                  ),
-                ),
-                title: const Text('Vitamina C'),
-                subtitle: const Text('Suplemento vitamínico'),
-                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/detalle',
-                    arguments: {
-                      'nombre': 'Vitamina C',
-                      'descripcion': 'Suplemento vitamínico de consulta.',
-                      'precio': 5.50,
-                    },
-                  );
-                },
-              ),
+            ProductCard(
+              nombre: 'Vitamina C',
+              descripcion: 'Suplemento vitamínico',
+              precio: '\$5.50',
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/detalle',
+                  arguments: {
+                    'nombre': 'Vitamina C',
+                    'descripcion':
+                        'Suplemento vitamínico de consulta.',
+                    'precio': 5.50,
+                  },
+                );
+              },
             ),
 
-            Card(
-              child: ListTile(
-                leading: const CircleAvatar(
-                  backgroundColor: Color(0xFFE3F2FD),
-                  child: Icon(
-                    Icons.health_and_safety,
-                    color: Color(0xFF1565C0),
-                  ),
-                ),
-                title: const Text('Alcohol antiséptico'),
-                subtitle: const Text('Producto para uso externo'),
-                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/detalle',
-                    arguments: {
-                      'nombre': 'Alcohol antiséptico',
-                      'descripcion': 'Producto para limpieza externa.',
-                      'precio': 2.25,
-                    },
-                  );
-                },
-              ),
+            ProductCard(
+              nombre: 'Alcohol antiséptico',
+              descripcion: 'Producto para uso externo',
+              precio: '\$2.25',
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/detalle',
+                  arguments: {
+                    'nombre': 'Alcohol antiséptico',
+                    'descripcion':
+                        'Producto para limpieza externa.',
+                    'precio': 2.25,
+                  },
+                );
+              },
             ),
 
             const SizedBox(height: 20),
+
+            // Botón de consulta general
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
@@ -207,7 +208,9 @@ const SizedBox(height: 24),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF1565C0),
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 15,
+                  ),
                 ),
               ),
             ),
