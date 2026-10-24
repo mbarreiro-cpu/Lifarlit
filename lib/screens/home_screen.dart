@@ -71,6 +71,60 @@ class HomeScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 24),
+
+const Text(
+  'Categorías',
+  style: TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: Color(0xFF17365D),
+  ),
+),
+
+const SizedBox(height: 12),
+
+Row(
+  children: [
+    Expanded(
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Column(
+            children: const [
+              Icon(
+                Icons.medication,
+                color: Color(0xFF1565C0),
+                size: 30,
+              ),
+              SizedBox(height: 8),
+              Text('Vitaminas'),
+            ],
+          ),
+        ),
+      ),
+    ),
+    Expanded(
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Column(
+            children: const [
+              Icon(
+                Icons.sanitizer,
+                color: Color(0xFF1565C0),
+                size: 30,
+              ),
+              SizedBox(height: 8),
+              Text('Higiene'),
+            ],
+          ),
+        ),
+      ),
+    ),
+  ],
+),
+
+const SizedBox(height: 24),
             const Text(
               'Productos destacados',
               style: TextStyle(
