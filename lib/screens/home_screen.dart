@@ -653,6 +653,31 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
 
+                 
+const SizedBox(height: 12),
+
+// Acceso a los productos obtenidos desde la API REST.
+SizedBox(
+  width: double.infinity,
+  child: ElevatedButton.icon(
+    onPressed: () {
+      Navigator.pushNamed(
+        context,
+        '/productos-online',
+      );
+    },
+    icon: const Icon(Icons.cloud_download),
+    label: const Text('Consultar productos en línea'),
+    style: ElevatedButton.styleFrom(
+      backgroundColor: const Color(0xFF00897B),
+      foregroundColor: Colors.white,
+      padding: const EdgeInsets.symmetric(
+        vertical: 15,
+      ),
+    ),
+  ),
+),
+
                   const SizedBox(height: 24),
 
                   // Sección de notificaciones locales.
