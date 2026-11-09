@@ -33,4 +33,4 @@ El formulario muestra una confirmación en pantalla. Actualmente, no envía los 
 
 ## Autor
 
-Proyecto académico desarrollado como práctica de Flutter.
+Proyecto académico desarrollado como práctica de Flutter estudiante Meily Barreiro González.

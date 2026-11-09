@@ -1,9 +1,15 @@
-
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'screens/detail_screen.dart';
 
-void main() {
+import 'screens/detail_screen.dart';
+import 'screens/welcome_screen.dart';
+import 'services/notification_service.dart';
+import 'theme/app_theme.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await NotificationService.initialize();
+
   runApp(const LifarlitApp());
 }
 
@@ -15,15 +21,9 @@ class LifarlitApp extends StatelessWidget {
     return MaterialApp(
       title: 'Lifarlit',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF1565C0),
-        ),
-        useMaterial3: true,
-      ),
-      initialRoute: '/',
+      theme: AppTheme.lightTheme,
+      home: const WelcomeScreen(),
       routes: {
-        '/': (context) => const HomeScreen(),
         '/detalle': (context) => const DetailScreen(),
       },
     );
